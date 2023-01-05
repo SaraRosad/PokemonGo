@@ -6,7 +6,7 @@
     @include('components.welcome.section-about')
 
     <!-- ======= Speakers Section ======= -->
-    @include('components.welcome.section-speakers')
+    @include('components.welcome.section-pokemons')
 
    {{--  <!-- ======= Schedule Section ======= -->
     @include('components.welcome.section-schedule')
@@ -15,7 +15,7 @@
     @include('components.welcome.section-venue') --}}
 
     <!-- ======= Hotels Section ======= -->
-    @include('components.welcome.section-hotels')
+    {{-- @include('components.welcome.section-hotels') --}}
 
     <!-- ======= Gallery Section ======= -->
     @include('components.welcome.section-gallery')

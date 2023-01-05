@@ -20,20 +20,22 @@ $.ajax(settings).done(function (response) {
         name:   ['Articuno','Zapdos','Moltres','Mewtwo','Raikou','Entei'],
     };
     for (let pokemon_legendary of response.Legendary){
-
+        console.log(pokemon_legendary.pokemon_name+'_'+pokemon_legendary.form);
         let first_body_pokemon_section = `
             <div class="col-lg-4 col-md-6">
-                    <div class="speaker" data-aos="fade-up" data-aos-delay="100">
-                        <img src="assets/img/pokemon_legendary/`+pokemon_legendary.pokemon_name+`.png" alt="`+pokemon_legendary.rarity+`" class="img-fluid">
+                    <div class="pokemon" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets/img/pokemon_legendary/`+pokemon_legendary.pokemon_name+'_'+pokemon_legendary.form+`.png" alt="`+pokemon_legendary.rarity+`" class="img-fluid">
                         <div class="details">
                             <h3><a class="pokemon_modal" type="button" data-toggle="modal" data-target="#modal_pokemon">`+pokemon_legendary.pokemon_name+`</a></h3>
                             <p>`+pokemon_legendary.form+`</p>
-                            <div class="social">
+                            <div class="stats">
+
                             <a href="" class="icon-power">
-                            <div class="progress">
-                                <div class="progress-bar" data-pokemon_id="`+pokemon_legendary.pokemon_id+`" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="10000"></div>
-                            </div>
-                          </a>
+                                <p class="m-0">Max CP:</p>
+                                <div class="progress mx-1">
+                                    <div class="progress-bar" data-pokemon_id="`+pokemon_legendary.pokemon_id+`" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="10000"></div>
+                                </div>
+                            </a>
                             </div>
                         </div>
                     </div>
@@ -92,36 +94,16 @@ function removeItemAll(arr, val){
 
 $.ajax(settings_max_cp).done(function (response) {
 
-    var icons = $('.icon-power');
     var progressbar = $('.progress-bar');
-    var modifiedText = '';
-    var arrayPokemon_icon = [];
-    var arrayPokemon_cp = [];
-
-    response.forEach((pokemon_cp, i) =>{
-
-        for( let icon of icons){
-            arrayPokemon_icon.push(parseInt(icon.dataset.pokemon_id));
-            arrayPokemon_cp.push(parseInt(pokemon_cp.pokemon_id));
-        }
-
-
-    });
-
-    var items = arrayPokemon_icon.filter(onlyUnique);
-    var items_cp = arrayPokemon_cp.filter(onlyUnique);
-
-    let array_icon_to_cp = items_cp.filter(item => items.includes(item));
-
-    for (let elements of items){
+    response.forEach((pokemon_cp, i) => {
         for( let bar of progressbar){
-            console.log(bar.data('pokemon_id'));
-            if(elements === bar.data('pokemon_id')){
-
-                bar.style.width = pokemon_cp.max_cp+"px";
+            if(parseInt(bar.dataset.pokemon_id) === pokemon_cp.pokemon_id){
+                let pokemon_health_cp = pokemon_cp.max_cp/100;
+                bar.attributes[3].nodeValue = pokemon_health_cp;
+                bar.style.width = pokemon_health_cp+"px";
             }
         }
-    }
+    });
 });
 
 
