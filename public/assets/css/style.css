@@ -726,6 +726,8 @@ h6 {
   position: relative;
   overflow: hidden;
   margin-bottom: 30px;
+  width: 250px;
+  height: 350px;
 }
 
 #speakers .speaker .details {
@@ -1669,4 +1671,19 @@ h6 {
 }
 .fa-trophy{
     font-size: 40px;
+}
+.img-fluid{
+    border-radius: 25px;
+}
+.details{
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.icon-power{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.progress{
+    width: 170px;
 }

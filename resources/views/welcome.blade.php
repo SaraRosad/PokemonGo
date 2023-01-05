@@ -8,11 +8,11 @@
     <!-- ======= Speakers Section ======= -->
     @include('components.welcome.section-speakers')
 
-    <!-- ======= Schedule Section ======= -->
+   {{--  <!-- ======= Schedule Section ======= -->
     @include('components.welcome.section-schedule')
 
     <!-- ======= Venue Section ======= -->
-    @include('components.welcome.section-venue')
+    @include('components.welcome.section-venue') --}}
 
     <!-- ======= Hotels Section ======= -->
     @include('components.welcome.section-hotels')

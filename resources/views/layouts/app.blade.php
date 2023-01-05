@@ -10,8 +10,8 @@
     <title>{{ __('Pokemon Go') }}</title>
 
      <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
+  <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
@@ -134,6 +134,8 @@
     <script src="{{asset('assets/vendor/php-email-form/validate.js')}}"></script>
 
     <!-- Template Main JS File -->
+    <script src="{{asset('assets/js/jquery-3.6.3.min.js')}}"></script>
     <script src="{{asset('assets/js/main.js')}}"></script>
+    <script src="{{asset('assets/js/data.js')}}"></script>
 </body>
 </html>
