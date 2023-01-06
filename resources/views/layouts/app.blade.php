@@ -27,7 +27,7 @@
   <!-- Template Main CSS File -->
   <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
 
-  
+
 </head>
 <body>
     <!-- ======= Header ======= -->
@@ -113,9 +113,9 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero">
         <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
-            <h1 class="mb-4 pb-0">The Gaming<br><span>Statitics</span> Tournaments</h1>
-            <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p>
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
+            <h1 class="mb-4 pb-0">The Gaming<br><span>Statitics</span> of <span>Pokemons</span></h1>
+            <p class="mb-4 pb-0">The best way to have better understanding of each one.</p>
+            <a href="https://www.youtube.com/watch?v=-GomKT-7dBc" class="glightbox play-btn mb-4"></a>
             <a href="#about" class="about-btn scrollto">Know More...</a>
         </div>
     </section><!-- End Hero Section -->
@@ -125,6 +125,7 @@
     </main>
 
     @include('components.footer')
+    @include('components.modals.modal_pokemon')
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

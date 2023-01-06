@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::get('/pokemon', function(){
     return view('show_pokemon');
-})->name('home');
+})->name('pokemon.show');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

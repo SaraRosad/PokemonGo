@@ -67,35 +67,36 @@
             </div>
             </div>
             <div class="col-lg-4 col-md-6">
-            <div class="pokemon" data-aos="fade-up" data-aos-delay="200">
-                <img src="{{asset('assets/img/pokemons/5.jpg')}}" alt="pokemon 5" class="img-fluid">
-                <div class="details">
-                <h3><a href="pokemon-details.html">Alejandrin Littel</a></h3>
-                <p>Qui molestiae natus</p>
-                <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+                <div class="pokemon" data-aos="fade-up" data-aos-delay="200">
+                    <img src="{{asset('assets/img/pokemons/5.jpg')}}" alt="pokemon 5" class="img-fluid">
+                    <div class="details">
+                        <h3><a href="pokemon-details.html">Alejandrin Littel</a></h3>
+                        <p>Qui molestiae natus</p>
+                        <div class="social">
+                            <a href=""><i class="bi bi-twitter"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
                 </div>
-                </div>
-            </div>
             </div>
             <div class="col-lg-4 col-md-6">
-            <div class="pokemon" data-aos="fade-up" data-aos-delay="300">
-                <img src="{{asset('assets/img/pokemons/6.jpg')}}" alt="pokemon 6" class="img-fluid">
-                <div class="details">
-                <h3><a href="pokemon-details.html">Willow Trantow</a></h3>
-                <p>Non autem dicta</p>
-                <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
+                <div class="pokemon" data-aos="fade-up" data-aos-delay="300">
+                    <img src="{{asset('assets/img/pokemons/6.jpg')}}" alt="pokemon 6" class="img-fluid">
+                    <div class="details">
+                    <h3><a href="pokemon-details.html">Willow Trantow</a></h3>
+                    <p>Non autem dicta</p>
+                    <div class="social">
+                        <a href=""><i class="bi bi-twitter"></i></a>
+                        <a href=""><i class="bi bi-facebook"></i></a>
+                        <a href=""><i class="bi bi-instagram"></i></a>
+                        <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                    </div>
                 </div>
             </div>
-            </div> --}}
+            --}}
         </div>
     </div>
 

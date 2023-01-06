@@ -31,7 +31,7 @@
 </head>
 <body>
     <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center ">
+  <header id="header" class="d-flex align-items-center bg-header">
         <div class="container-fluid container-xxl d-flex align-items-center">
 
             <div id="logo" class="me-auto">
@@ -115,6 +115,7 @@
     </main>
 
     @include('components.footer')
+    
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
