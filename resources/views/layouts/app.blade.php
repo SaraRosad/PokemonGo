@@ -1,3 +1,5 @@
+
+<?php $logged = false;?>
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -22,9 +24,10 @@
   <link href="{{asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
   <link href="{{asset('assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
   <link href="{{asset('assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
-  <link href="{{asset('assets/vendor/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet">
+  <link href="{{asset('assets/vendor/sweetalert2/package/dist/sweetalert2.min.css')}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
+  <link href="{{asset('assets/vendor/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet">
   <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
 
 
@@ -44,6 +47,9 @@
                 <ul>
                 <!-- Authentication Links -->
                     @guest
+                    <script>
+                        var logged = false;
+                    </script>
                         <li class="nav-item">
                             <a class="nav-link" >{{ __('Tournament') }}</a>
                         </li>
@@ -66,6 +72,9 @@
                             </li>
                         @endif
                     @else
+                    <script>
+                       logged = true;
+                    </script>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
@@ -113,7 +122,7 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero">
         <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
-            <h1 class="mb-4 pb-0">The Gaming<br><span>Statitics</span> of <span>Pokemons</span></h1>
+            <h1 class="mb-4 pb-0">The Gaming<br><span>Statistics</span> of <span>Pokemons</span></h1>
             <p class="mb-4 pb-0">The best way to have better understanding of each one.</p>
             <a href="https://www.youtube.com/watch?v=-GomKT-7dBc" class="glightbox play-btn mb-4"></a>
             <a href="#about" class="about-btn scrollto">Know More...</a>
@@ -138,7 +147,9 @@
 
     <!-- Template Main JS File -->
     <script src="{{asset('assets/js/jquery-3.6.3.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/sweetalert2/package/dist/sweetalert2.all.min.js')}}"></script>
     <script src="{{asset('assets/js/main.js')}}"></script>
+
     <script src="{{asset('assets/js/data.js')}}"></script>
 </body>
 </html>

@@ -1,7 +1,10 @@
 
 'use strict';
 var content_body_section = '';
-var pokemon_section =$('#pokemon-legendary');
+var pokemon_legendary_section = $('#pokemon-legendary');
+var pokemon_mythic_section = $('#pokemon-mythic');
+var pokemon_standard_section = $('#pokemon-standard');
+var pokemon_ultra_beast_section = $('#pokemon-ultra-beast');
 var pokemon_stats = [];
 var pokemon_max_cp = [];
 var pokemon_evolution = [];
@@ -21,11 +24,17 @@ const settings_pokemon_rarity= {
 };
 
 $.ajax(settings_pokemon_rarity).done(function (response) {
-    pokemon_section.empty();
+    pokemon_legendary_section.empty();
+    pokemon_mythic_section.empty();
+    pokemon_standard_section.empty();
+    pokemon_ultra_beast_section.empty();
+
+     //LIST OF POKEMON AVAILABLES @just for now to get a correct data showing
 
     var list_items_legendary = {
         name:   ['Articuno','Zapdos','Moltres','Mewtwo','Raikou','Entei'],
-    };
+     };
+
     var list_items_mythic = {
         name:   [''],
      };
@@ -38,6 +47,7 @@ $.ajax(settings_pokemon_rarity).done(function (response) {
         name:   [''],
      };
 
+    //POKEMON LEGENDARY SECTION
     for (let pokemon_legendary of response.Legendary){
         let first_body_pokemon_section = `
             <div class="col-lg-4 col-md-6">
@@ -62,13 +72,14 @@ $.ajax(settings_pokemon_rarity).done(function (response) {
 
         for (let pokemon_name of list_items_legendary.name) {
             if(pokemon_name === pokemon_legendary.pokemon_name){
-                pokemon_section.append(first_body_pokemon_section);
+                pokemon_legendary_section.append(first_body_pokemon_section);
             }
         }
 
         /* console.log(pokemon_legendary.pokemon_name); */
     }
 
+    //POKEMON MYTHIC SECTION
     for (let pokemon_mythic of response.Mythic){
         let body_pokemon_section = `
             <div class="col-lg-4 col-md-6">
@@ -93,13 +104,14 @@ $.ajax(settings_pokemon_rarity).done(function (response) {
 
         for (let pokemon_name of list_items_mythic.name) {
             if(pokemon_name === pokemon_mythic.pokemon_name){
-                pokemon_section.append(body_pokemon_section);
+                pokemon_mythic_section.append(body_pokemon_section);
             }
         }
 
         /* console.log(pokemon_legendary.pokemon_name); */
     }
 
+    //POKEMON STANDARD SECTION
     for (let pokemon_standard of response.Standard){
         let body_pokemon_section = `
             <div class="col-lg-4 col-md-6">
@@ -124,25 +136,28 @@ $.ajax(settings_pokemon_rarity).done(function (response) {
 
         for (let pokemon_name of list_items_standard.name) {
             if(pokemon_name === pokemon_standard.pokemon_name){
-                pokemon_section.append(body_pokemon_section);
+                pokemon_standard_section.append(body_pokemon_section);
             }
         }
     }
 
-    console.log(Array.from(response));
-    /* for (let pokemon_ultra_beast of response.Ultra){
+    //POKEMON ULTRA BEAST SECTION
+    var ultra_beast = Object.entries(response)[3][1];
+
+    for (let pokemon_ultra_beast of ultra_beast){
+
         let body_pokemon_section = `
             <div class="col-lg-4 col-md-6">
                     <div class="pokemon" data-aos="fade-up" data-aos-delay="100">
-                        <img src="assets/img/pokemon_legendary/`+pokemon_standard.pokemon_name+'_'+pokemon_standard.form+`.png" alt="`+pokemon_standard.rarity+`" class="img-fluid">
+                        <img src="assets/img/pokemon_legendary/`+pokemon_ultra_beast.pokemon_name+'_'+pokemon_ultra_beast.form+`.png" alt="`+pokemon_ultra_beast.rarity+`" class="img-fluid">
                         <div class="details">
-                            <h3><a class="pokemon_modal" role="button" data-toggle="modal" data-bs-toggle="modal" data-bs-target="#modal_pokemon" data-pokemon_id="`+pokemon_standard.pokemon_id+`" data-form="`+pokemon_standard.form+`">`+pokemon_standard.pokemon_name+`</a></h3>
-                            <p>`+pokemon_standard.form+`</p>
+                            <h3><a class="pokemon_modal" role="button" data-toggle="modal" data-bs-toggle="modal" data-bs-target="#modal_pokemon" data-pokemon_id="`+pokemon_ultra_beast.pokemon_id+`" data-form="`+pokemon_ultra_beast.form+`">`+pokemon_ultra_beast.pokemon_name+`</a></h3>
+                            <p>`+pokemon_ultra_beast.form+`</p>
                             <div class="stats">
                                 <a href="" class="icon-power">
                                     <p class="m-0">CP:</p>
                                     <div class="progress mx-1">
-                                        <div class="progress-bar" data-pokemon_id="`+pokemon_standard.pokemon_id+`" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="10000"></div>
+                                        <div class="progress-bar" data-pokemon_id="`+pokemon_ultra_beast.pokemon_id+`" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="10000"></div>
                                     </div>
                                     <p class="pg-bar"><span>%</span></p>
                                 </a>
@@ -152,12 +167,13 @@ $.ajax(settings_pokemon_rarity).done(function (response) {
             </div>
         `;
 
-        for (let pokemon_name of list_items_standard.name) {
-            if(pokemon_name === pokemon_standard.pokemon_name){
-                pokemon_section.append(body_pokemon_section);
+        for (let pokemon_name of list_items_ultra_beast.name) {
+            if(pokemon_name === pokemon_ultra_beast.pokemon_name){
+                pokemon_ultra_beast_section.append(body_pokemon_section);
             }
         }
-    } */
+    }
+
     $('.modal-title').empty();
     $('.modal-title').append('');
 });
@@ -507,7 +523,7 @@ function getPokemon(pokemon_id, form){
                             `+gender_section+`
                             <hr>
                             <div class="text-center">
-                                <button type="button" class="btn">Go Now</button>
+                                <button type="button" id="goToPokemon" data-id="`+stats.pokemon_id+`" data-form="`+stats.form+`" class="btn">Go Now</button>
                             </div>
                             </div>
                         </div>
@@ -522,19 +538,30 @@ function getPokemon(pokemon_id, form){
 
 }
 
-
-
 $(document).on('click', '.pokemon_modal', function(e){
     let pokemon_id = e.target.dataset.pokemon_id;
     let pokemon_form = e.target.dataset.form;
     getPokemon(pokemon_id, pokemon_form);
 });
 
+$(document).on('click',  '#goToPokemon', function(){
+    switch(logged){
+        case false:
+            Swal.fire({
+                title: 'Oops!',
+                text: 'I\'m sorry, please login first',
+                imageUrl: 'https://media.tenor.com/CFNA9X91BIwAAAAC/pikachu-pokemon.gif',
+                imageWidth: 400,
+                imageHeight: 300,
+                imageAlt: 'Pikachu is crying',
+            });
 
-$(document).on('click', '#now-more', function(e){
-
+            break;
+        case true:
+            let data_id = $('#goToPokemon').data('id');
+            let data_form = $('#goToPokemon').data('form');
+            $('#goToPokemon').attr("href", "/pokemon-show/"+data_id+"/"+data_form);
+            break;
+    }
 });
-
-
-
 

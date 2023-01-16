@@ -26,12 +26,12 @@
     <!-- =======  F.A.Q Section ======= -->
     @include('components.welcome.section-faq')
 
-    <!-- ======= Subscribe Section ======= -->
+   {{--  <!-- ======= Subscribe Section ======= -->
     @include('components.welcome.section-subscribe')
 
     <!-- ======= Buy Ticket Section ======= -->
     @include('components.welcome.section-buyTicket')
-
+ --}}
     <!-- ======= Contact Section ======= -->
     @include('components.welcome.section-contact')
 @endsection

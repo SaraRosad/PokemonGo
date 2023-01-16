@@ -32,12 +32,12 @@
           </div> --}}
 
           <div class="col-lg-3 col-md-6 footer-contact">
-           <h4>Contact Us</h4>
+           <h4>Contact</h4>
           </div>
             <p class="col-12 d-flex">
-                A108 Adam Street
-                New York, NY 535022
-                United States
+                AV.Hispanoamericana,Proyecto Livera
+                Santigo de los caballeros, 51000
+                Republica Dominicana
             </p>
             <p class="col-12">
                 <strong>Phone:</strong> +1 5589 55488 55<br>
@@ -65,7 +65,7 @@
         Licensing information: https://bootstrapmade.com/license/
         Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
       -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by Sara
       </div>
     </div>
   </footer><!-- End  Footer -->

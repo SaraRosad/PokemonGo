@@ -1747,3 +1747,53 @@ span.c-red{
     padding: 1rem;
     background: var(--bs-modal-bg);
 }
+#login.container{
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+#register.container{
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#login_section button.btn {
+    font-size: 15px;
+    border-radius: 50px;
+    padding: 10px 40px;
+    transition: all 0.2s;
+    background-color: #f82249;
+    border: 0;
+    color: #fff;
+  }
+
+#login_section button.btn:hover {
+    background-color: #e0072f;
+  }
+  #login_section .btn{
+    font-size: 15px;
+    border-radius: 50px;
+    padding: 10px 40px;
+    transition: all 0.2s;
+    border: 0;
+    color: #fff;
+  }
+  #login_section .btn:hover{
+    color: #e0072f;
+  }
+.btn.btn-link:before{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #f82249;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out 0s;
+
+}
+
