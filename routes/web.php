@@ -24,3 +24,6 @@ Route::get('/pokemon', function(){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/apiTest', function(){
+    return view('apiTest');
+})->name('api.test');
