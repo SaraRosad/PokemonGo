@@ -21,9 +21,14 @@ Route::get('/', function () {
 Route::get('/pokemon', function(){
     return view('show_pokemon');
 })->name('pokemon.show');
+
+Route::get('/map', function(){
+    return view('mapbox');
+})->name('mapbox.show');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/apiTest', function(){
     return view('apiTest');
 })->name('api.test');

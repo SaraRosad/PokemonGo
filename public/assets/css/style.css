@@ -12,6 +12,7 @@ body {
   background: #fff;
   color: #2f3138;
   font-family: "Open Sans", sans-serif;
+  cursor: url('../images/icons8-mouse-face-48.png');
 }
 
 a {
@@ -1796,4 +1797,5 @@ span.c-red{
     transition: all 0.3s ease-in-out 0s;
 
 }
+
 
